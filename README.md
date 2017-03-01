@@ -16,3 +16,6 @@ Step 2. Add the dependency
 	dependencies {
 	        compile 'com.github.wulee510505:Text2Speach:1.0.0'
 	}
+
+Step 3. 在需要文字转语音的地方
+      Text2Speech.speech(context,"text",false);
