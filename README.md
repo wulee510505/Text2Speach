@@ -18,4 +18,5 @@ Step 2. Add the dependency
 	}
 
 Step 3. 在需要文字转语音的地方
+
       Text2Speech.speech(context,"text",false);
