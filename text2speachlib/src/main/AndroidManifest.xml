@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.wulee.text2speachlib">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+
+
+
+        <service android:name="com.liangmayong.text2speech.Text2SpeechService" />
+    </application>
+
+</manifest>
