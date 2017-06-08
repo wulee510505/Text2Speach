@@ -5,22 +5,25 @@
     android:layout_height="match_parent"
     tools:context="com.wulee.text2speach.MainActivity">
 
+
+    <ImageView
+        android:id="@+id/iv_play_msg_content"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+       android:layout_alignParentBottom="true"
+        android:src="@mipmap/icon_voice"/>
+
     <TextView
         android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:padding="15dp"
-        android:background="@color/colorAccent"
-        android:textColor="#fff"
-        android:text="Hello World!" />
-
-
-    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-         android:layout_below="@id/tv"
-        android:padding="15dp"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:text="点击上面按钮" />
+        android:layout_above="@+id/iv_play_msg_content"
+        android:padding="10dp"
+        android:background="#cdcdcd"
+        android:textSize="16sp"
+        android:lineSpacingMultiplier="1.2"
+        android:text=" 空山不见人，\n 但闻人语响。\n 返影入深林，\n 复照青苔上。" />
+
 </RelativeLayout>
