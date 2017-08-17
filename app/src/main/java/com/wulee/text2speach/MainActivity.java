@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.liangmayong.text2speech.OnText2SpeechListener;
 import com.liangmayong.text2speech.Text2Speech;
 
-import static android.R.attr.animation;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,12 +29,6 @@ public class MainActivity extends AppCompatActivity {
         tvContent = (TextView)findViewById(R.id.tv);
         ivPlay = (ImageView)findViewById(R.id.iv_play_msg_content);
 
-        ivPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Text2Speech.speech(MainActivity.this,tvContent.getText().toString(),true);
-            }
-        });
 
         final ScaleAnimation scaleanimation = new ScaleAnimation(1f, 1.2f, 1f, 1.2f,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
@@ -50,10 +43,12 @@ public class MainActivity extends AppCompatActivity {
             public void onCompletion() {
                 Log.i("speak","onCompletion");
                 scaleanimation.cancel();
+                ivPlay.setImageResource(R.mipmap.icon_play);
             }
             @Override
             public void onPrepared() {
                 Log.i("speak","onPrepared");
+                ivPlay.setImageResource(R.mipmap.icon_voice);
                 ivPlay.startAnimation(scaleanimation);
             }
             @Override
@@ -74,5 +69,33 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("speak","onPlayProgress---->"+ i);
             }
         });
+
+        ivPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Text2Speech.isSpeeching()){
+                    Text2Speech.pause(MainActivity.this);
+                    ivPlay.setImageResource(R.mipmap.icon_pause);
+                    scaleanimation.cancel();
+                }else{
+                    Text2Speech.speech(MainActivity.this,tvContent.getText().toString(),true);
+                }
+            }
+        });
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(Text2Speech.isSpeeching())
+            Text2Speech.pause(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(Text2Speech.isSpeeching())
+            Text2Speech.shutUp(this);
     }
 }

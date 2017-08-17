@@ -10,20 +10,64 @@
         android:id="@+id/iv_play_msg_content"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-       android:layout_alignParentBottom="true"
-        android:src="@mipmap/icon_voice"/>
+        android:src="@mipmap/icon_play" />
 
-    <TextView
-        android:id="@+id/tv"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_above="@+id/iv_play_msg_content"
-        android:padding="10dp"
-        android:background="#cdcdcd"
-        android:textSize="16sp"
-        android:lineSpacingMultiplier="1.2"
-        android:text=" 空山不见人，\n 但闻人语响。\n 返影入深林，\n 复照青苔上。" />
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:layout_above="@+id/iv_play_msg_content">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:background="#cdcdcd"
+            android:layout_gravity="center_horizontal"
+            android:lineSpacingMultiplier="1.2"
+            android:padding="10dp"
+            android:text="
+                            一人 我饮酒醉，\n
+                            醉把佳人成双对，\n
+                            两眼 是独相随，\n
+                            只求他日能双归，\n
+                            娇女我轻扶琴，\n
+                            燕嬉紫竹林，\n
+                            我痴情红颜心甘情愿，\n
+                            千里把君寻，\n
+                            我说红颜我痴情笑，\n
+                            曲动琴声妙，\n
+                            我轻狂高傲懵懂无知，\n
+                            只怪太年少，\n
+                            我弃江山，\n
+                            忘天下，\n
+                            斩断情丝无牵挂，\n
+                            千古留名传佳话，\n
+                            两年征战已白发，\n
+                            一生征战何人陪，\n
+                            谁是谁非谁相随，\n
+                            帅哥一生为了谁，\n
+                            能爱几回恨几回，\n
+                            败帝王，\n
+                            斗苍天，\n
+                            夺得皇位以成仙，\n
+                            豪情万丈天地间，\n
+                            续写另类帝王篇，\n
+                            红尘事我已斩断，\n
+                            久经战场人心乱，\n
+                            当年扬名又立万，\n
+                            这一战我无遗憾，\n
+                            相思，\n
+                            我愁断肠，\n
+                            眼中泪两行，\n
+                            我多年为君一统天下，\n
+                            帅哥把名扬。"
+            android:textSize="16sp" />
+
+    </ScrollView>
+
 
 </RelativeLayout>
